@@ -1,5 +1,7 @@
 'use strict';
-var AsyncStorage = require('react-native').AsyncStorage;
+
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 var Util = require('./util.js');
 var Filter = require('./filter.js')
 
@@ -130,8 +132,8 @@ class Model {
             for (var element in filterResult) {
                 if (rows[row]['_id'] === filterResult[element]['_id'])
                     rowsToDelete.push(row);
-                }
             }
+        }
         for (var i in rowsToDelete) {
             var row = rowsToDelete[i];
             results.push(this.model["rows"][row]);
